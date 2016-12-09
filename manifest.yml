@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 512MB
+  instances: 1
+  name: pipepline
+  disk_quota: 1024M
+  command: pipeline
+  buildpack: https://github.com/cloudfoundry/go-buildpack.git
