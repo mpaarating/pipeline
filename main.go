@@ -1,10 +1,6 @@
 package main
 
-import (
-	"os"
-
-	service "github.com/mpaarating/pipeline/service"
-)
+import "os"
 
 func main() {
 	port := os.Getenv("PORT")
@@ -12,6 +8,6 @@ func main() {
 		port = "3000"
 	}
 
-	server := service.NewServer()
+	server := NewServer()
 	server.Run(":" + port)
 }
