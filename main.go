@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"os"
 
-func main(){
-  fmt.Println("Hello world!")
- }
+	service "github.com/mpaarating/pipeline/service"
+)
+
+func main() {
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "3000"
+	}
+
+	server := service.NewServer()
+	server.Run(":" + port)
+}
