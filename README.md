@@ -1,4 +1,4 @@
-[![wercker status](https://app.wercker.com/status/db5153382d9530b974c15d01093daaff/s/master "wercker status")](https://app.wercker.com/project/byKey/db5153382d9530b974c15d01093daaff)
+[![wercker status](https://app.wercker.com/status/d1c1a215b1b27ae1509b8734d5f5b94a/s/master "wercker status")](https://app.wercker.com/project/byKey/d1c1a215b1b27ae1509b8734d5f5b94a)
 
 # Pipeline
 
