@@ -2,6 +2,8 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -38,6 +40,7 @@ func TestCreatMatch(t *testing.T) {
 
 	defer res.Body.Close()
 
+	payload, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		t.Errorf("Error parsing response body: %v", err)
 	}
@@ -58,12 +61,13 @@ func TestCreatMatch(t *testing.T) {
 		}
 	}
 
-	var matchResponse newMatcheResponse
+	var matchResponse newMatchResponse
+	err = json.Unmarshal(payload, &matchResponse)
 	if err != nil {
 		t.Errorf("Could not unmarshal payload into newMatchResponse object")
 	}
 
 	if matchResponse.Id == "" || !strings.Contains(loc[0], matchResponse.Id) {
-		t.Error("matchresponse.Id does not match Location header")
+		t.Error("matchresponse.Id does not match Location header.")
 	}
 }

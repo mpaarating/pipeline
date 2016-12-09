@@ -9,8 +9,8 @@ import (
 
 func createMatchHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		guid := uuid.New()
-		w.Header().Add("Location", "/matches/"+guid.String())
-		formatter.JSON(w, http.StatusCreated, struct{ Test string }{"This is a test"})
+		guid := uuid.New().String()
+		w.Header().Add("Location", "/matches/"+guid)
+		formatter.JSON(w, http.StatusCreated, &newMatchResponse{Id: guid})
 	}
 }
