@@ -10,6 +10,7 @@ import (
 
 // NewServer configures and returns a Server.
 func NewServer() *negroni.Negroni {
+
 	formatter := render.New(render.Options{
 		IndentJSON: true,
 	})
@@ -30,8 +31,8 @@ func initRoutes(mx *mux.Router, formatter *render.Render, repo matchRepository) 
 }
 
 func testHandler(formatter *render.Render) http.HandlerFunc {
+
 	return func(w http.ResponseWriter, req *http.Request) {
-		formatter.JSON(w, http.StatusOK,
-			struct{ Test string }{"This is a test"})
+		formatter.JSON(w, http.StatusOK, struct{ Test string }{"This is a test"})
 	}
 }
